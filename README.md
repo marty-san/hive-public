@@ -14,7 +14,7 @@ Hive lets you build a panel of AI agents — each with a name, expertise domain,
 - **Shared whiteboard** — persistent per-conversation workspace agents can read and write
 - **Proposal system** — agents can propose adding or removing participants mid-conversation; proposals go to a participant vote
 - **@mentions** — direct questions to a specific agent
-- **Web search** — DuckDuckGo integration as a tool agents can invoke
+- **Web search** — DuckDuckGo integration available via `POST /api/tools/web-search` (not currently wired into the agent conversation pipeline)
 - **Interrupt / resume** — pause autonomous runs and resume them
 - **Debug console** — live view of bid events, memory retrievals, and WebSocket traffic
 - **Command palette** — keyboard-accessible navigation
