@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Markdown styling for chat messages */
+  .prose code {
+    @apply bg-muted/70 border border-border/40 rounded px-1 py-0.5 text-sm font-mono break-words;
+  }
+
+  .prose pre {
+    @apply bg-muted/60 border border-border/40 rounded-md p-3 overflow-x-auto my-2 max-w-full;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0 break-normal whitespace-pre;
+  }
+
+  .prose a {
+    @apply text-primary underline;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-muted-foreground/30 pl-4 italic my-2;
+  }
+
+  .prose strong {
+    @apply font-semibold;
+  }
+
+  .prose em {
+    @apply italic;
+  }
+
+  /* Style @mentions in messages */
+  .prose {
+    /* This will be handled by a custom component for better @mention detection */
+  }
+
+  /* Override all text colors for human messages (primary background) to ensure white text */
+  .bg-primary .prose {
+    @apply text-primary-foreground;
+  }
+
+  .bg-primary .prose p,
+  .bg-primary .prose li,
+  .bg-primary .prose h1,
+  .bg-primary .prose h2,
+  .bg-primary .prose h3,
+  .bg-primary .prose h4,
+  .bg-primary .prose h5,
+  .bg-primary .prose h6,
+  .bg-primary .prose strong,
+  .bg-primary .prose em,
+  .bg-primary .prose blockquote,
+  .bg-primary .prose code,
+  .bg-primary .prose pre {
+    @apply text-primary-foreground;
+  }
+
+  .bg-primary .prose code {
+    @apply bg-primary-foreground/20 break-words;
+  }
+
+  .bg-primary .prose pre {
+    @apply bg-primary-foreground/20 max-w-full overflow-x-auto;
+  }
+
+  .bg-primary .prose pre code {
+    @apply break-normal whitespace-pre;
+  }
+
+  .bg-primary .prose a {
+    @apply text-primary-foreground underline;
+  }
+
+  .bg-primary .prose blockquote {
+    @apply border-primary-foreground/30;
+  }
+}
